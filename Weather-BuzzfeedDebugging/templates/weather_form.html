@@ -1,0 +1,19 @@
+<html>
+<title>Weather Form</title>
+<body>
+<form method = "POST" action="http://localhost:5000/zipcode">
+
+<h3>{{ form.zipcode.label }} : {{ form.zipcode() }}</h3>
+{{ form.submit() }}
+<br>
+  {{ form.hidden_tag() }}
+  <!--handle errors  message ={'zipcode': ['Please enter 5 digits']}-->
+  {% for message in get_flashed_messages() %} 
+ 	{% for key in message %}
+  		{{key}} - {{message[key][0]}}
+  	{% endfor %}
+  {% endfor %}
+</br>
+</form>
+</body>
+</html>
